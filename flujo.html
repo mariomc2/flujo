@@ -15,8 +15,10 @@ graph TD
     c3[Speech2Text]
     c4[EDIT Text]
     c5[Save Note]
+    c6[Upload Recording to WebApp]
     c1-->|yes|c2
     c2-->c3
+    c2-->c6
     c3-->c4
     c1-->|no|c4
     c4-->c5
