@@ -7,11 +7,42 @@
 </head>
 <body>
     <div class="mermaid">
-        graph LR
-            A-->B
-            B-->C
-            C-->A
-            D-->C
+        graph TD
+		subgraph Write Note
+			c1{Voice}
+			c2[Start Recording]
+			c3[Speech2Text]
+			c4[EDIT Text]
+			c5[Save Note]
+			c1-->|yes|c2
+			c2-->c3
+			c3-->c4
+			c1-->|no|c4
+			c4-->c5
+		end
+
+		subgraph Get Picture
+			b1{Gallery/Take}
+			b2[Access Gallery]
+			b3[Acces Camera]
+			b4[Upload Picture to WebApp]
+			b1-->|Gallery|b2
+			b1-->|Take|b3
+			b2-->b4
+			b3-->b4
+		end
+
+		subgraph List Notes
+			a0(START)
+			a1[List Notes]
+			a2{Click new?}
+			a0-->a1
+			a1-->a2
+		end
+
+		a2-->|yes|b1
+		b4-->c1
+		c5-->a1
     </div>
 </body>
 </html>
